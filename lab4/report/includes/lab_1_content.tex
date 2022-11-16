@@ -1,0 +1,401 @@
+\begin{center}
+  \textbf{Отчёт лабораторной работы №\envReportLabNumber}
+\end{center}
+
+\textbf{Тема}:
+<<\envReportTitle>>
+
+\textbf{Цель}: ...
+
+% = = = = = = = = = = = = = = = =
+
+\begin{center}
+  \textbf{Условие}
+\end{center}
+
+На сети, изображенной ниже (см. рисунок~\ref{fig:task}), сформировать поток максимальной мощности,
+направленный из истока I в сток S при условии,
+что пропускные способности всех ребер в обоих направлениях одинаковы.
+Выписать ребра, образующие на сети разрез минимальной пропускной способности.
+Ниже приводятся вариант пропускных способностей ребер (см. таблицу~\ref{tab:var5}).
+
+\begin{figure}[!h]
+  \centering
+
+  \includegraphics[height=4cm]
+  {assets/export/MO_lab4_graph-Page-1.pdf}
+
+  \caption{Граф к заданию}
+
+  \label{fig:task}
+\end{figure}
+
+\begin{table}[h!]
+  \scriptsize
+
+  \centering
+
+  \caption{Таблица к задаче}
+  \label{tab:var5}
+
+  \begin{tabular}{|c|c|c|c|c|c|c|c|c|} 
+    \hline
+    Вариант &$r_{13}$ &$r_{12}$ &$r_{23}$ &$r_{34}$ &$r_{25}$ &$r_{45}$ &$r_{46}$ &$r_{56}$ \\ \hline
+    5       &3        &7        &6        &4        &3        &7        &5        &4        \\ \hline
+  \end{tabular}
+\end{table}
+
+\begin{center}
+  \textbf{Решение}
+\end{center}
+
+Решать буду как в методичке БрГТУ \cite{MethodBrstu}.
+
+Для начала выпишу на граф (см. рисунок~\ref{fig:task}) данные моего варианта (см. таблицу~\ref{tab:var5}) - и
+получу новый граф (см. рисунок~\ref{fig:task_var5}).
+
+\begin{figure}[!h]
+  \centering
+
+  \includegraphics[height=5cm]
+  {assets/export/MO_lab4_graph_var5-Page-1.pdf}
+
+  \caption{Граф для варианта 5}
+
+  \label{fig:task_var5}
+\end{figure}
+
+\newpage
+
+1. Строим по графу таблицу R (см. таблицу~\ref{tab:Rtemp}).
+\begin{table}[h!]
+  \scriptsize
+
+  \centering
+
+  \caption{$(R)$}
+
+  \label{tab:Rtemp}
+
+  \begin{tabular}{|c|cccccc|} 
+    \hline
+    R&1&2&3&4&5&6 \\ \hline
+    1&0&7&3&0&0&0 \\ 
+    2&7&0&6&0&3&0 \\ 
+    3&3&6&0&4&0&0 \\ 
+    4&0&0&4&0&7&5 \\ 
+    5&0&3&0&7&0&4 \\ 
+    6&0&0&0&5&4&0 \\ \hline
+  \end{tabular}
+
+\end{table}
+
+2. Выбираю пути 1-3-4-6 и 1-2-5-6.
+Результат смотри на рисунке~\ref{fig:point2}.
+
+\begin{figure}[!h]
+  \centering
+
+  \includegraphics[height=4cm]
+  {assets/export/MO_lab4_graph_var5_2-Page-1.pdf}
+
+  \caption{Выбираю пути}
+
+  \label{fig:point2}
+\end{figure}
+
+3. Высчитываю минимальный поток.
+
+$$
+\begin{cases}
+  (I-1-3-4-6-S): &min(r_{13}; r_{34}; r_{46}) = min(3;4;5)=3 \\
+  (I-1-2-5-6-S): &min(r_{12}; r_{25}; r_{56}) = min(7;3;4)=3 \\
+\end{cases}
+$$
+
+4. Минимальный поток показываю на графе. Результат смотри на рисунке~\ref{fig:point4}.
+
+\begin{figure}[!h]
+  \centering
+
+  \includegraphics[height=4cm]
+  {assets/export/MO_lab4_graph_var5_3-Page-1.pdf}
+
+  \caption{Пометили потоки минимальным}
+
+  \label{fig:point4}
+\end{figure}
+
+5. Считаю f по графу с минимальными потоками (см. рисунок~\ref{fig:point4}).
+
+$$
+f = \sum _j X_{Ij} = \sum _i X_{iS}
+$$
+
+$$
+6 \equiv 6
+\begin{cases}
+  f(X^0) = x_{13}^0 + x_{12}^0=3+3=6 \\
+  f(X^0) = x_{46}^0 + x_{56}^0=3+3=6 \\
+\end{cases}
+$$
+
+\newpage
+
+6. Строю таблицу $X^0$ (см. таблицу~\ref{tab:X0temp}) по графу с минимальными потоками (см. рисунок~\ref{fig:point4}).
+
+\begin{table}[h!]
+  \scriptsize
+
+  \centering
+
+  \caption{$(X^0)$}
+
+  \label{tab:X0temp}
+
+  \begin{tabular}{|c|cccccc|} 
+    \hline
+    $X^0$&1&2&3&4&5&6 \\ \hline
+    1&0 & 3& 3& 0& 0&0 \\ 
+    2&-3& 0& 0& 0& 3&0 \\ 
+    3&-3& 0& 0& 3& 0&0 \\ 
+    4&0 & 0&-3& 0& 0&3 \\ 
+    5&0 &-3& 0& 0& 0&3 \\ 
+    6&0 & 0& 0&-3&-3&0 \\ \hline
+  \end{tabular}
+
+\end{table}
+
+7. Отнимаю от таблицы $R$ (см. таблицу~\ref{tab:R}) таблицу $X^0$ (см. таблицу~\ref{tab:X0}) - и получаем таблицу $R-X^0$ (см. таблицу~\ref{tab:RX0}).
+
+\begin{table}[h!]
+  \scriptsize
+
+  \centering
+  
+  \begin{minipage}{0.32\textwidth}
+    \centering
+
+    \caption{$(R)$}
+
+    \label{tab:R}
+
+    \begin{tabular}{|c|cccccc|} 
+      \hline
+      R&1&2&3&4&5&6 \\ \hline
+      1&0&7&3&0&0&0 \\ 
+      2&7&0&6&0&3&0 \\ 
+      3&3&6&0&4&0&0 \\ 
+      4&0&0&4&0&7&5 \\ 
+      5&0&3&0&7&0&4 \\ 
+      6&0&0&0&5&4&0 \\ \hline
+    \end{tabular}
+  \end{minipage}
+  \begin{minipage}{0.32\textwidth}
+    \centering
+
+    \caption{$(X^0)$}
+
+    \label{tab:X0}
+
+    \begin{tabular}{|c|cccccc|} 
+      \hline
+      $X^0$&1&2&3&4&5&6 \\ \hline
+      1&0 & 3& 3& 0& 0&0 \\ 
+      2&-3& 0& 0& 0& 3&0 \\ 
+      3&-3& 0& 0& 3& 0&0 \\ 
+      4&0 & 0&-3& 0& 0&3 \\ 
+      5&0 &-3& 0& 0& 0&3 \\ 
+      6&0 & 0& 0&-3&-3&0 \\ \hline
+    \end{tabular}
+  \end{minipage}
+  \begin{minipage}{0.32\textwidth}
+    \centering
+
+    \caption{$(R - X^0)$}
+
+    \label{tab:RX0}
+
+    \begin{tabular}{|c|cccccc|} 
+      \hline
+      $R-X^0$&1&2&3&4&5&6 \\ \hline
+      1&0 & 4& 0& 0& 0&0 \\ 
+      2&10& 0& 6& 0& 0&0 \\ 
+      3& 6& 6& 0& 1& 0&0 \\ 
+      4&0 & 0& 7& 0& 7&2 \\ 
+      5&0 & 6& 0& 7& 0&1 \\ 
+      6&0 & 0& 0& 8& 7&0 \\ \hline
+    \end{tabular}
+  \end{minipage}
+
+\end{table}
+
+8. Строю граф по таблице $R-X^0$ (см. таблицу~\ref{tab:RX0}).
+Результат смотри на рисунке~\ref{fig:point3}.
+
+\begin{figure}[!h]
+  \centering
+
+  \includegraphics[height=4cm]
+  {assets/export/MO_lab4_graph_var5_4-Page-1.pdf}
+
+  \caption{Граф по таблице $R-X^0$}
+
+  \label{fig:point3}
+\end{figure}
+
+9. $\Delta = min_{1-2-3-4-6}=(4;6;1;2)=1$
+
+10. $f(X^1) = f(X^0) + \Delta = 6+1=7$
+
+11. К таблице $X^0$ (см. таблицу~\ref{tab:X0}) добавим $\Delta = 1$ к элементам $x_{12}^0$, $x_{23}^0$, $x_{34}^0$, $x_{46}^0$.
+
+У таблицы $X^0$ (см. таблицу~\ref{tab:X0}) отнимем $-\Delta = -1$ у элементов $x_{21}^0$, $x_{32}^0$, $x_{43}^0$, $x_{64}^0$.
+
+Результаты запишем в таблицу $X^1$ (см. таблицу~\ref{tab:X1temp}).
+
+\begin{table}[h!]
+  \scriptsize
+
+  \centering
+
+  \caption{$(X^1)$}
+
+  \label{tab:X1temp}
+
+  \begin{tabular}{|c|cccccc|} 
+    \hline
+    $X^1$&1&2&3&4&5&6 \\ \hline
+    1&0 & 4& 3& 0& 0&0 \\ 
+    2&-4& 0& 1& 0& 3&0 \\ 
+    3&-3&-1& 0& 4& 0&0 \\ 
+    4&0 & 0&-4& 0& 0&4 \\ 
+    5&0 &-3& 0& 0& 0&3 \\ 
+    6&0 & 0& 0&-4&-3&0 \\ \hline
+  \end{tabular}
+
+\end{table}
+
+12. Отнимем от таблицы $R$ (см. таблицу~\ref{tab:R1}) таблицу $X^1$ (см. таблицу~\ref{tab:X1}) - и получим
+таблицу $R-X^1$ (см. таблицу~\ref{tab:RX1}).
+
+\begin{table}[h!]
+  \scriptsize
+
+  \centering
+  
+  \begin{minipage}{0.32\textwidth}
+    \centering
+
+    \caption{$(R)$}
+
+    \label{tab:R1}
+
+    \begin{tabular}{|c|cccccc|} 
+      \hline
+      R&1&2&3&4&5&6 \\ \hline
+      1&0&7&3&0&0&0 \\ 
+      2&7&0&6&0&3&0 \\ 
+      3&3&6&0&4&0&0 \\ 
+      4&0&0&4&0&7&5 \\ 
+      5&0&3&0&7&0&4 \\ 
+      6&0&0&0&5&4&0 \\ \hline
+    \end{tabular}
+  \end{minipage}
+  \begin{minipage}{0.32\textwidth}
+    \centering
+
+    \caption{$(X^1)$}
+
+    \label{tab:X1}
+
+    \begin{tabular}{|c|cccccc|} 
+      \hline
+      $X^1$&1&2&3&4&5&6 \\ \hline
+      1&0 & 4& 3& 0& 0&0 \\ 
+      2&-4& 0& 1& 0& 3&0 \\ 
+      3&-3&-1& 0& 4& 0&0 \\ 
+      4&0 & 0&-4& 0& 0&4 \\ 
+      5&0 &-3& 0& 0& 0&3 \\ 
+      6&0 & 0& 0&-4&-3&0 \\ \hline
+    \end{tabular}
+  \end{minipage}
+  \begin{minipage}{0.32\textwidth}
+    \centering
+
+    \caption{$(R - X^1)$}
+
+    \label{tab:RX1}
+
+    \begin{tabular}{|c|cccccc|} 
+      \hline
+      $R-X^1$&1&2&3&4&5&6 \\ \hline
+      1&0 & 3& 0& 0& 0&0 \\ 
+      2&11& 0& 5& 0& 0&0 \\ 
+      3&6 & 7& 0& 0& 0&0 \\ 
+      4&0 & 0& 8& 0& 7&1 \\ 
+      5&0 & 6& 0& 7& 0&1 \\ 
+      6&0 & 0& 0& 9& 7&0 \\ \hline
+    \end{tabular}
+  \end{minipage}
+\end{table}
+
+13. Строю граф по таблице $R-X^1$ (см. таблицу~\ref{tab:RX1}).
+Результат смотри на рисунке~\ref{fig:point4}.
+
+\begin{figure}[!h]
+  \centering
+
+  \includegraphics[height=3cm]
+  {assets/export/MO_lab4_graph_var5_5-Page-1.pdf}
+
+  \caption{Граф по таблице $R-X^1$}
+
+  \label{fig:point4}
+\end{figure}
+
+14. Строю граф по таблице $X^1$ (см. таблицу~\ref{tab:RX1}) по элементам сверху главной диагонали и разделяю граф линией.
+Результат смотри на рисунке~\ref{fig:point5}.
+
+\begin{figure}[!h]
+  \centering
+
+  \includegraphics[height=3cm]
+  {assets/export/MO_lab4_graph_var5_6-Page-1.pdf}
+
+  \caption{Граф по таблице $X^1$}
+
+  \label{fig:point5}
+\end{figure}
+
+15. Правильность построения максимального потока можно проверить, используя теорему Форда-Фалкерсона,
+согласно которой на любой сети максимальная величина потока истока в сток равна минимальной пропускной способности
+разреза на сети, отделяющий исток от стока.
+
+Разрез смотри на рисунке~\ref{fig:point5}.
+
+$$
+7 \equiv 7
+\begin{cases}
+  f(X^1) = f(X^0) + \Delta = 6+1=7 \\
+  X_{34}^1 + X_{25}^1 = 4+3 = 7 \\
+\end{cases}
+$$
+
+\textbf{Ответ}:
+$X^1= \begin{pmatrix}
+  0 & 4& 3& 0& 0&0 \\ 
+  -4& 0& 1& 0& 3&0 \\ 
+  -3&-1& 0& 4& 0&0 \\ 
+  0 & 0&-4& 0& 0&4 \\ 
+  0 &-3& 0& 0& 0&3 \\ 
+  0 & 0& 0&-4&-3&0 \\
+\end{pmatrix}$,
+$R - X^1= \begin{pmatrix}
+  0 & 3& 0& 0& 0&0 \\ 
+  11& 0& 5& 0& 0&0 \\ 
+  6 & 7& 0& 0& 0&0 \\ 
+  0 & 0& 8& 0& 7&1 \\ 
+  0 & 6& 0& 7& 0&1 \\ 
+  0 & 0& 0& 9& 7&0 \\
+\end{pmatrix}$.
