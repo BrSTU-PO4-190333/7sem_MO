@@ -1,0 +1,1024 @@
+\begin{center}
+  \textbf{Отчёт лабораторной работы №\envReportLabNumber}
+\end{center}
+
+\textbf{Тема}:
+<<\envReportTitle>>
+
+\textbf{Цель}: ...
+
+\begin{center}
+  \textbf{1-ая часть лабораторной работы}
+\end{center}
+
+Беру методичку от БрГТУ \cite{MethodBrstu}.
+
+\textbf{Условие}: Задан сетевой график выполнения некоторого комплекса работ и
+продолжительности выполнения работ (см. рисунок~\ref{fig:part1_option5}). Требуется определить:
+
+\begin{itemize}
+  \item[1.] Исходное событие I и завершающее событие S.
+  \item[2.] Номера вершин в натуральном порядке.
+  \item[3.] Ранние и поздние сроки свершения событий.
+  \item[4.] Критический путь и критическое время.
+  \item[5.] Резервы времени событий и интервалы свободы.
+  \item[6.] Ранние и поздние сроки начала и окончания всех работ.
+  \item[7.] Полный и свободный резервы времени выполнения работ.
+\end{itemize}
+
+\begin{figure}[!h]
+  \centering
+
+  \includegraphics[width=18cm]
+  {assets/export/part1-option5-Page-1.pdf}
+
+  \caption{Вариант 5}
+
+  \label{fig:part1_option5}
+\end{figure}
+
+\begin{center}
+  \textbf{Ход работы}
+\end{center}
+
+\subparagraph{Задание 1. Исходное событие I и завершающее событие S} \hspace{0pt}
+
+Событие I - кружок, который имеет только исходящие стрелки.
+
+Событие S - кружок, который имеет только входящие стрелки.
+
+\subparagraph{Задание 2. Номера вершин в натуральном порядке} \hspace{0pt}
+
+\textbf{1-итерация нумерования графа}
+
+1.1. Начнем с круга, от которого только исходят стрелки. Пометим этот круг красным цветом.
+
+1.2. От красного круга исходящие стрелки раскрасим красным цветом и пометим дугу римской цифрой <<I>>.
+
+\textbf{2-итерация нумерования графа}
+
+2.1. Находим не раскрашенные круги, в который входят раскрашенные и помеченные дуги. Раскрашиваем такой круг в оранжевый цвет.
+
+2.2. От оранжевого круга исходящие стрелки раскрасим оранжевым цветом и пометим дугу римской цифрой <<II>>.
+
+\textbf{3-итерация нумерования графа}
+
+3.1. Находим не раскрашенные круги, в который входят раскрашенные и помеченные дуги. Раскрашиваем такой круг в желтый цвет.
+
+3.2. От желтого круга исходящие стрелки раскрасим желтым цветом и пометим дугу римской цифрой <<III>>.
+
+\textbf{4-итерация нумерования графа}
+
+4.1. Находим не раскрашенные круги, в который входят раскрашенные и помеченные дуги. Раскрашиваем такой круг в зелёный цвет.
+
+4.2. От зеленого круга исходящие стрелки раскрасим зеленым цветом и пометим дугу римской цифрой <<IV>>.
+
+\textbf{5-итерация нумерования графа}
+
+5.1. Находим не раскрашенные круги, в который входят раскрашенные и помеченные дуги. Раскрашиваем такой круг в голубой цвет.
+
+5.2. От голубого круга исходящие стрелки раскрасим голубым цветом и пометим дугу римской цифрой <<V>>.
+
+\textbf{6-итерация нумерования графа}
+
+6.1. Находим не раскрашенные круги, в который входят раскрашенные и помеченные дуги. Раскрашиваем такой круг в синий цвет.
+
+6.2. От синего круга исходящие стрелки раскрасим синим цветом и пометим дугу римской цифрой <<VI>>.
+
+\textbf{7-итерация нумерования графа}
+
+7.1. Находим не раскрашенные круги, в который входят раскрашенные и помеченные дуги. Круг такой один, последний. Раскрашиваем такой круг в фиолетовый цвет цвет.
+
+Конечный результат нумерации изображен на рис.~\ref{fig:part1_option5_nomera}.
+
+В место римских цифр возвращаю номера. Результат на рис.~\ref{fig:part1_option5_vesa}.
+
+\begin{figure}[!hp]
+  \centering
+
+  \includegraphics[width=18cm]
+  {assets/export/part1-option5-nomera-Page-1.pdf}
+
+  \caption{Нумеруем граф}
+
+  \label{fig:part1_option5_nomera}
+\end{figure}
+
+\begin{figure}[!hp]
+  \centering
+
+  \includegraphics[width=18cm]
+  {assets/export/part1-option5-vesa-Page-1.pdf}
+
+  \caption{Граф пронумерованными кругами и подписанными ребрами}
+
+  \label{fig:part1_option5_vesa}
+\end{figure}
+
+\newpage
+
+\subparagraph{Задание 3. Ранние и поздние сроки свершения событий} \hspace{0pt}
+
+\subparagraph{Расчет раннего времени} \hspace{0pt}
+
+{\scriptsize
+$\textcolor{magenta}{t_{\text{р}}(1)} = \textcolor{red}{0}$
+
+$\textcolor{magenta}{t_{\text{р}}(2)} = \textcolor{olive}{ t_{\text{р}}(1) + t(1;2) } =0+5 =\textcolor{red}{5}$
+
+$\textcolor{magenta}{t_{\text{р}}(3)} = \textcolor{olive}{t_{\text{р}}(1) + t(1;3)} =0+8 =\textcolor{red}{8}$
+
+$\textcolor{magenta}{t_{\text{р}}(4)} = \textcolor{olive}{t_{\text{р}}(2) + t(2;4)} =5+4 =\textcolor{red}{9}$
+
+$\textcolor{magenta}{t_{\text{р}}(5)} = \textcolor{olive}{t_{\text{р}}(2) + t(2;5)} =5+8 =\textcolor{red}{13}$
+
+$\textcolor{magenta}{t_{\text{р}}(6)} = \textcolor{olive}{max(t_{\text{р}}(2) + t(2;6); t_{\text{р}}(1) + t(1;6))} =max(5+3;0+6) =max(8;6) =\textcolor{red}{8}$
+
+$\textcolor{magenta}{t_{\text{р}}(7)} = \textcolor{olive}{t_{\text{р}}(3) + t(3;7)} =8+6 =\textcolor{red}{14}$
+
+$\textcolor{magenta}{t_{\text{р}}(8)} = \textcolor{olive}{max(t_{\text{р}}(4) + t(4;8); t_{\text{р}}(5) + t(1;6))} =max(9+7;13+6) =max(16;19) =\textcolor{red}{19}$
+
+$\textcolor{magenta}{t_{\text{р}}(9)} = \textcolor{olive}{max(t_{\text{р}}(6) + t(6;9); t_{\text{р}}(3) + t(3;9); t_{\text{р}}(7) + t(7;9))} =max(8+1;8+4;14+5) =max(9;12;19) =\textcolor{red}{19}$
+
+$\textcolor{magenta}{t_{\text{р}}(10)} = \textcolor{olive}{t_{\text{р}}(7) + t(7;10)} =14+9 =\textcolor{red}{23}$
+
+$\textcolor{magenta}{t_{\text{р}}(11)} = \textcolor{olive}{t_{\text{р}}(7) + t(7;11)} =14+12 =\textcolor{red}{26}$
+
+$\textcolor{magenta}{t_{\text{р}}(12)} = \textcolor{olive}{max(t_{\text{р}}(8) + t(8;12); t_{\text{р}}(5) + t(5;12))} =max(19+2;13+9) =max(21;22) =\textcolor{red}{22}$
+
+$\textcolor{magenta}{t_{\text{р}}(13)} = \textcolor{olive}{max(t_{\text{р}}(5) + t(5;13); t_{\text{р}}(9) + t(9;13))} =max(13+13;19+5) =max(26;24) =\textcolor{red}{26}$
+
+$\textcolor{magenta}{t_{\text{р}}(14)} = \textcolor{olive}{max(t_{\text{р}}(10) + t(10;14); t_{\text{р}}(11) + t(11;14))} =max(23+15;26+4) =max(38;30) =\textcolor{red}{38}$
+
+$\textcolor{magenta}{t_{\text{р}}(15)} = \textcolor{olive}{max(t_{\text{р}}(12) + t(12;15); t_{\text{р}}(6) + t(6;15); t_{\text{р}}(9) + t(9;15))} =max(22+10;8+7;19+9) =max(32;15;28) =\textcolor{red}{32}$
+
+$\textcolor{magenta}{t_{\text{р}}(16)} = \textcolor{olive}{t_{\text{р}}(12) + t(12;16)} =22+2 =\textcolor{red}{24}$
+
+$\textcolor{magenta}{t_{\text{р}}(17)} = \textcolor{olive}{max(t_{\text{р}}(16) + t(16;17); t_{\text{р}}(15) + t(15;17); t_{\text{р}}(13) + t(13;17); t_{\text{р}}(10) + t(10;17); t_{\text{р}}(14) + t(14;17))}=
+\\ =max(24+5;32+8;26+7;23+10;38+8) =max(29;40;33;33;46) =\textcolor{red}{46}$
+
+Расчеты $t_{\text{р}}$ перенесены на рис.~\ref{fig:part1_option5_krest}.
+}
+
+\subparagraph{Расчет позднего времени} \hspace{0pt}
+
+{\scriptsize
+$\textcolor{magenta}{t_{\text{п}}(17)} = \textcolor{olive}{t_{\text{р}}(17)} = \textcolor{red}{46}$
+
+$\textcolor{magenta}{t_{\text{п}}(16)} = \textcolor{olive}{t_{\text{р}}(17)-t(17;16)} = 46-5 = \textcolor{red}{41}$
+
+$\textcolor{magenta}{t_{\text{п}}(15)} = \textcolor{olive}{t_{\text{р}}(17)-t(17;15)} = 46-8 = \textcolor{red}{38}$
+
+$\textcolor{magenta}{t_{\text{п}}(14)} = \textcolor{olive}{t_{\text{р}}(17)-t(17;14)} = 46-8 = \textcolor{red}{38}$
+
+$\textcolor{magenta}{t_{\text{п}}(13)} = \textcolor{olive}{t_{\text{р}}(17)-t(17;13)} = 46-7 = \textcolor{red}{39}$
+
+$\textcolor{magenta}{t_{\text{п}}(12)} = \textcolor{olive}{min(t_{\text{р}}(16)-t(16;12);t_{\text{р}}(15)-t(15;12))} = min(41-1;38-10) = min(40;28) = \textcolor{red}{28}$
+
+$\textcolor{magenta}{t_{\text{п}}(11)} = \textcolor{olive}{t_{\text{р}}(14)-t(14;11)} = 38-4 = \textcolor{red}{34}$
+
+$\textcolor{magenta}{t_{\text{п}}(10)} = \textcolor{olive}{min(t_{\text{р}}(17)-t(17;10);t_{\text{р}}(14)-t(14;10))} = min(46-10;38-15) = min(36;23) = \textcolor{red}{23}$
+
+$\textcolor{magenta}{t_{\text{п}}(9)} = \textcolor{olive}{min(t_{\text{р}}(15)-t(15;9);t_{\text{р}}(13)-t(13;9))} = min(38-9;39-5) = min(29;34) = \textcolor{red}{29}$
+
+$\textcolor{magenta}{t_{\text{п}}(8)} = \textcolor{olive}{t_{\text{р}}(12)-t(12;8)} = 28-2 = \textcolor{red}{26}$
+
+$\textcolor{magenta}{t_{\text{п}}(7)} = \textcolor{olive}{min(t_{\text{р}}(9)-t(9;7);t_{\text{р}}(10)-t(10;7);t_{\text{р}}(11)-t(11;7))} = min(29-5;23-9;34-12) =min(24;14;22) = \textcolor{red}{14}$
+
+$\textcolor{magenta}{t_{\text{п}}(6)} = \textcolor{olive}{min(t_{\text{р}}(15)-t(15;6);t_{\text{р}}(9)-t(9;6))} = min(38-7;29-1) = min(31;28) = \textcolor{red}{28}$
+
+$\textcolor{magenta}{t_{\text{п}}(5)} = \textcolor{olive}{min(t_{\text{р}}(8)-t(8;5);t_{\text{р}}(12)-t(12;5);t_{\text{р}}(13)-t(13;5))} = min(26-6;28-9;39-13) =min(20;19;26) = \textcolor{red}{19}$
+
+$\textcolor{magenta}{t_{\text{п}}(4)} = \textcolor{olive}{t_{\text{р}}(8)-t(8;4)} = 26-7 = \textcolor{red}{19}$
+
+$\textcolor{magenta}{t_{\text{п}}(3)} = \textcolor{olive}{min(t_{\text{р}}(9)-t(9;3);t_{\text{р}}(7)-t(7;3))} = min(29-4;14-6) = min(25;8) = \textcolor{red}{8}$
+
+$\textcolor{magenta}{t_{\text{п}}(2)} = \textcolor{olive}{min(t_{\text{р}}(4)-4;t_{\text{р}}(5)-8;t_{\text{р}}(6)-3)} = min(19-4;19-8;28-3) =min(15;11;25) = \textcolor{red}{11}$
+
+$\textcolor{magenta}{t_{\text{п}}(1)} = \textcolor{olive}{min(t_{\text{р}}(2)-t(2;1);t_{\text{р}}(6)-t(6;1);t_{\text{р}}(3)-t(3;1))} = min(11-5;28-6;8-8) =min(6;22;0) = \textcolor{red}{0}$
+
+Расчеты $t_{\text{п}}$ перенесены на рис.~\ref{fig:part1_option5_krest}.
+}
+
+\subparagraph{Задание 4. Критический путь и критическое время} \hspace{0pt}
+
+Круги, где раний срок равен позднему сроку ($t_\text{р}(i) = t_\text{п}(i)$), соединены крит. путем:
+
+\begin{multicols}{2}
+$t_\text{р}(1) =0 \equiv  t_\text{п}(1) = 0$;
+
+$t_\text{р}(3) =8 \equiv  t_\text{п}(3) = 8$;
+
+$t_\text{р}(7) =14 \equiv  t_\text{п}(7) = 14$;
+
+\columnbreak
+
+$t_\text{р}(10) =23 \equiv  t_\text{п}(10) = 23$;
+
+$t_\text{р}(14) =38 \equiv  t_\text{п}(14) = 38$;
+
+$t_\text{р}(17) =46 \equiv  t_\text{п}(17) = 46$.
+\end{multicols}
+
+Критический путь $L_{\text{кр}}$: 1-3-7-10-14-17.
+
+Критическое время: $t(L_{\text{кр}}) = t_{\text{кр}} = 8 + 6 + 9 + 15 + 8 = 46$
+
+Отметим критический путь жирными стрелками.
+
+Критический путь отмечен жирными стрелками на рис.~\ref{fig:part1_option5_krest}.
+
+\subparagraph{Задание 5. Резервы времени событий и интервалы свободы} \hspace{0pt}
+
+Резерв времени буду считать по формуле (\ref{equ:part1_R}).
+
+\begin{equation}
+  R_{i } = t_\text{п}(i ) - t_\text{р}(i ) \label{equ:part1_R}
+\end{equation}
+
+\begin{multicols}{2}
+$\textcolor{magenta}{R_{1}} = \textcolor{olive}{t_\text{п}(1) - t_\text{р}(1)} = 0-0 = \textcolor{red}{0}$
+
+$\textcolor{magenta}{R_{2}} = \textcolor{olive}{t_\text{п}(2) - t_\text{р}(2)} = 11-5 = \textcolor{red}{6}$
+
+$\textcolor{magenta}{R_{3}} = \textcolor{olive}{t_\text{п}(3) - t_\text{р}(3)} = 8-8 = \textcolor{red}{0}$
+
+$\textcolor{magenta}{R_{4}} = \textcolor{olive}{t_\text{п}(4) - t_\text{р}(4)} = 19-9 = \textcolor{red}{10}$
+
+$\textcolor{magenta}{R_{5}} = \textcolor{olive}{t_\text{п}(5) - t_\text{р}(5)} = 19-13 = \textcolor{red}{6}$
+
+$\textcolor{magenta}{R_{6}} = \textcolor{olive}{t_\text{п}(6) - t_\text{р}(6)} = 28-8 = \textcolor{red}{20}$
+
+$\textcolor{magenta}{R_{7}} = \textcolor{olive}{t_\text{п}(7) - t_\text{р}(7)} = 14-14 = \textcolor{red}{0}$
+
+$\textcolor{magenta}{R_{8}} = \textcolor{olive}{t_\text{п}(8) - t_\text{р}(8)} = 26-19 = \textcolor{red}{7}$
+
+$\textcolor{magenta}{R_{9}} = \textcolor{olive}{t_\text{п}(9) - t_\text{р}(9)} = 29-19 = \textcolor{red}{10}$
+
+\columnbreak
+
+$\textcolor{magenta}{R_{10}} = \textcolor{olive}{t_\text{п}(10) - t_\text{р}(10)} = 23-23 = \textcolor{red}{0}$
+
+$\textcolor{magenta}{R_{11}} = \textcolor{olive}{t_\text{п}(11) - t_\text{р}(11)} = 34-26 = \textcolor{red}{8}$
+
+$\textcolor{magenta}{R_{12}} = \textcolor{olive}{t_\text{п}(12) - t_\text{р}(12)} = 28-22 = \textcolor{red}{6}$
+
+$\textcolor{magenta}{R_{13}} = \textcolor{olive}{t_\text{п}(13) - t_\text{р}(13)} = 39-26 = \textcolor{red}{13}$
+
+$\textcolor{magenta}{R_{14}} = \textcolor{olive}{t_\text{п}(14) - t_\text{р}(14)} = 38-38 = \textcolor{red}{0}$
+
+$\textcolor{magenta}{R_{15}} = \textcolor{olive}{t_\text{п}(15) - t_\text{р}(15)} = 38-32 = \textcolor{red}{6}$
+
+$\textcolor{magenta}{R_{16}} = \textcolor{olive}{t_\text{п}(16) - t_\text{р}(16)} = 41-24 = \textcolor{red}{17}$
+
+$\textcolor{magenta}{R_{17}} = \textcolor{olive}{t_\text{п}(17) - t_\text{р}(17)} = 46-46 = \textcolor{red}{0}$
+\end{multicols}
+
+Расчеты R перенесены на рис.~\ref{fig:part1_option5_krest}.
+
+\begin{figure}[!h]
+  \centering
+
+  \includegraphics[width=18cm]
+  {assets/export/part1-option5-krest-Page-1.pdf}
+
+  \caption{Граф с подписанными номерами, ранним временем, поздним временем и резервом}
+
+  \label{fig:part1_option5_krest}
+\end{figure}
+
+\subparagraph{Задание 6. Ранние и поздние сроки начала и окончания всех работ} \hspace{0pt}
+
+Раний срок начала работ буду считать по формуле (\ref{equ:part1_trn}).
+
+\begin{equation}
+  t_{\text{р.н.}}(i ,j ) = t_{\text{р}}(i) \label{equ:part1_trn}
+\end{equation}
+
+Поздний срок окончания работ буду считать по формуле (\ref{equ:part1_tpo}).
+
+\begin{equation}
+  t_{\text{п.о.}}(i ,j ) = t_{\text{п}}(j ) \label{equ:part1_tpo}
+\end{equation}
+
+\newpage
+
+\subparagraph{Ранний срок начала работ} \hspace{0pt}
+
+{\scriptsize
+\begin{multicols}{3}
+$\textcolor{magenta}{t_{\text{р.н.}}(1,2)} = \textcolor{olive}{t_{\text{р}}(1)}=\textcolor{red}{0}$
+
+$\textcolor{magenta}{t_{\text{р.н.}}(1,6)} = \textcolor{olive}{t_{\text{р}}(1)}=\textcolor{red}{0}$
+
+$\textcolor{magenta}{t_{\text{р.н.}}(1,3)} = \textcolor{olive}{t_{\text{р}}(1)}=\textcolor{red}{0}$
+
+$\textcolor{magenta}{t_{\text{р.н.}}(2,4)} = \textcolor{olive}{t_{\text{р}}(2)}=\textcolor{red}{5}$
+
+$\textcolor{magenta}{t_{\text{р.н.}}(2,5)} = \textcolor{olive}{t_{\text{р}}(2)}=\textcolor{red}{5}$
+
+$\textcolor{magenta}{t_{\text{р.н.}}(2,6)} = \textcolor{olive}{t_{\text{р}}(2)}=\textcolor{red}{5}$
+
+$\textcolor{magenta}{t_{\text{р.н.}}(3,9)} = \textcolor{olive}{t_{\text{р}}(3)}=\textcolor{red}{8}$
+
+$\textcolor{magenta}{t_{\text{р.н.}}(3,7)} = \textcolor{olive}{t_{\text{р}}(3)}=\textcolor{red}{8}$
+
+$\textcolor{magenta}{t_{\text{р.н.}}(4,8)} = \textcolor{olive}{t_{\text{р}}(4)}=\textcolor{red}{9}$
+
+$\textcolor{magenta}{t_{\text{р.н.}}(5,8)} = \textcolor{olive}{t_{\text{р}}(5)}=\textcolor{red}{13}$
+
+\columnbreak
+
+$\textcolor{magenta}{t_{\text{р.н.}}(5,12)} = \textcolor{olive}{t_{\text{р}}(5)}=\textcolor{red}{13}$
+
+$\textcolor{magenta}{t_{\text{р.н.}}(5,13)} = \textcolor{olive}{t_{\text{р}}(5)}=\textcolor{red}{13}$
+
+$\textcolor{magenta}{t_{\text{р.н.}}(6,15)} = \textcolor{olive}{t_{\text{р}}(6)}=\textcolor{red}{8}$
+
+$\textcolor{magenta}{t_{\text{р.н.}}(6,9)} = \textcolor{olive}{t_{\text{р}}(6)}=\textcolor{red}{8}$
+
+$\textcolor{magenta}{t_{\text{р.н.}}(7,9)} = \textcolor{olive}{t_{\text{р}}(7)}=\textcolor{red}{14}$
+
+$\textcolor{magenta}{t_{\text{р.н.}}(7,10)} = \textcolor{olive}{t_{\text{р}}(7)}=\textcolor{red}{14}$
+
+$\textcolor{magenta}{t_{\text{р.н.}}(7,11)} = \textcolor{olive}{t_{\text{р}}(7)}=\textcolor{red}{14}$
+
+$\textcolor{magenta}{t_{\text{р.н.}}(8,12)} = \textcolor{olive}{t_{\text{р}}(8)}=\textcolor{red}{19}$
+
+$\textcolor{magenta}{t_{\text{р.н.}}(9,15)} = \textcolor{olive}{t_{\text{р}}(9)}=\textcolor{red}{19}$
+
+$\textcolor{magenta}{t_{\text{р.н.}}(9,13)} = \textcolor{olive}{t_{\text{р}}(9)}=\textcolor{red}{19}$
+
+\columnbreak
+
+$\textcolor{magenta}{t_{\text{р.н.}}(10,17)} = \textcolor{olive}{t_{\text{р}}(10)}=\textcolor{red}{23}$
+
+$\textcolor{magenta}{t_{\text{р.н.}}(10,14)} = \textcolor{olive}{t_{\text{р}}(10)}=\textcolor{red}{23}$
+
+$\textcolor{magenta}{t_{\text{р.н.}}(11,14)} = \textcolor{olive}{t_{\text{р}}(11)}=\textcolor{red}{26}$
+
+$\textcolor{magenta}{t_{\text{р.н.}}(12,16)} = \textcolor{olive}{t_{\text{р}}(12)}=\textcolor{red}{22}$
+
+$\textcolor{magenta}{t_{\text{р.н.}}(12,15)} = \textcolor{olive}{t_{\text{р}}(12)}=\textcolor{red}{22}$
+
+$\textcolor{magenta}{t_{\text{р.н.}}(13,17)} = \textcolor{olive}{t_{\text{р}}(13)}=\textcolor{red}{26}$
+
+$\textcolor{magenta}{t_{\text{р.н.}}(14,17)} = \textcolor{olive}{t_{\text{р}}(14)}=\textcolor{red}{38}$
+
+$\textcolor{magenta}{t_{\text{р.н.}}(15,17)} = \textcolor{olive}{t_{\text{р}}(15)}=\textcolor{red}{32}$
+
+$\textcolor{magenta}{t_{\text{р.н.}}(16,17)} = \textcolor{olive}{t_{\text{р}}(16)}=\textcolor{red}{24}$
+\end{multicols}
+}
+
+\subparagraph{Поздний срок окончания работ} \hspace{0pt}
+
+{\scriptsize
+\begin{multicols}{3}
+$\textcolor{magenta}{t_{\text{п.о.}}(1,2)} = \textcolor{olive}{t_{\text{р}}(2)}=\textcolor{red}{11}$
+
+$\textcolor{magenta}{t_{\text{п.о.}}(1,3)} = \textcolor{olive}{t_{\text{р}}(3)}=\textcolor{red}{8}$
+
+$\textcolor{magenta}{t_{\text{п.о.}}(2,4)} = \textcolor{olive}{t_{\text{р}}(4)}=\textcolor{red}{19}$
+
+$\textcolor{magenta}{t_{\text{п.о.}}(2,5)} = \textcolor{olive}{t_{\text{р}}(5)}=\textcolor{red}{19}$
+
+$\textcolor{magenta}{t_{\text{п.о.}}(2,6)} = \textcolor{olive}{t_{\text{р}}(6)}=\textcolor{red}{28}$
+
+$\textcolor{magenta}{t_{\text{п.о.}}(1,6)} = \textcolor{olive}{t_{\text{р}}(6)}=\textcolor{red}{28}$
+
+$\textcolor{magenta}{t_{\text{п.о.}}(3,7)} = \textcolor{olive}{t_{\text{р}}(7)}=\textcolor{red}{14}$
+
+$\textcolor{magenta}{t_{\text{п.о.}}(4,8)} = \textcolor{olive}{t_{\text{р}}(8)}=\textcolor{red}{26}$
+
+$\textcolor{magenta}{t_{\text{п.о.}}(5,8)} = \textcolor{olive}{t_{\text{р}}(8)}=\textcolor{red}{26}$
+
+\columnbreak
+
+$\textcolor{magenta}{t_{\text{п.о.}}(6,9)} = \textcolor{olive}{t_{\text{р}}(9)}=\textcolor{red}{29}$
+
+$\textcolor{magenta}{t_{\text{п.о.}}(3,9)} = \textcolor{olive}{t_{\text{р}}(9)}=\textcolor{red}{29}$
+
+$\textcolor{magenta}{t_{\text{п.о.}}(7,9)} = \textcolor{olive}{t_{\text{р}}(9)}=\textcolor{red}{29}$
+
+$\textcolor{magenta}{t_{\text{п.о.}}(7,10)} = \textcolor{olive}{t_{\text{р}}(10)}=\textcolor{red}{23}$
+
+$\textcolor{magenta}{t_{\text{п.о.}}(7,11)} = \textcolor{olive}{t_{\text{р}}(11)}=\textcolor{red}{34}$
+
+$\textcolor{magenta}{t_{\text{п.о.}}(8,12)} = \textcolor{olive}{t_{\text{р}}(12)}=\textcolor{red}{28}$
+
+$\textcolor{magenta}{t_{\text{п.о.}}(5,12)} = \textcolor{olive}{t_{\text{р}}(12)}=\textcolor{red}{28}$
+
+$\textcolor{magenta}{t_{\text{п.о.}}(5,13)} = \textcolor{olive}{t_{\text{р}}(13)}=\textcolor{red}{39}$
+
+$\textcolor{magenta}{t_{\text{п.о.}}(9,13)} = \textcolor{olive}{t_{\text{р}}(13)}=\textcolor{red}{39}$
+
+$\textcolor{magenta}{t_{\text{п.о.}}(10,14)} = \textcolor{olive}{t_{\text{р}}(14)}=\textcolor{red}{38}$
+
+\columnbreak
+
+$\textcolor{magenta}{t_{\text{п.о.}}(11,14)} = \textcolor{olive}{t_{\text{р}}(14)}=\textcolor{red}{38}$
+
+$\textcolor{magenta}{t_{\text{п.о.}}(12,15)} = \textcolor{olive}{t_{\text{р}}(15)}=\textcolor{red}{38}$
+
+$\textcolor{magenta}{t_{\text{п.о.}}(6,15)} = \textcolor{olive}{t_{\text{р}}(15)}=\textcolor{red}{38}$
+
+$\textcolor{magenta}{t_{\text{п.о.}}(9,15)} = \textcolor{olive}{t_{\text{р}}(15)}=\textcolor{red}{38}$
+
+$\textcolor{magenta}{t_{\text{п.о.}}(12,16)} = \textcolor{olive}{t_{\text{р}}(16)}=\textcolor{red}{41}$
+
+$\textcolor{magenta}{t_{\text{п.о.}}(16,17)} = \textcolor{olive}{t_{\text{р}}(17)}=\textcolor{red}{46}$
+
+$\textcolor{magenta}{t_{\text{п.о.}}(15,17)} = \textcolor{olive}{t_{\text{р}}(17)}=\textcolor{red}{46}$
+
+$\textcolor{magenta}{t_{\text{п.о.}}(13,17)} = \textcolor{olive}{t_{\text{р}}(17)}=\textcolor{red}{46}$
+
+$\textcolor{magenta}{t_{\text{п.о.}}(10,17)} = \textcolor{olive}{t_{\text{р}}(17)}=\textcolor{red}{46}$
+
+$\textcolor{magenta}{t_{\text{п.о.}}(14,17)} = \textcolor{olive}{t_{\text{р}}(17)}=\textcolor{red}{46}$
+\end{multicols}
+}
+
+\subparagraph{Задание 7. Полный и свободный резервы времени выполнения работ} \hspace{0pt}
+
+Свободный резерв времени работы буду считать по формуле (\ref{equ:part1_rc}).
+
+\begin{equation}
+  R_{\text{с}}(i,j) = t_{\text{р}}(j) - t_{\text{р}}(i) - t(i,j) \label{equ:part1_rc}
+\end{equation}
+
+Полный резерв времени работы буду считать по формуле (\ref{equ:part1_rp}).
+
+\begin{equation}
+  R_{\text{п}}(i,j) = t_{\text{п}}(j) - t_{\text{р}}(i) - t(i,j) \label{equ:part1_rp}
+\end{equation}
+
+\textbf{Свободный резерв времени работы}
+
+{\scriptsize
+$\textcolor{magenta}{R_{\text{с}}(1,2)} = \textcolor{olive}{t_{\text{р}}(2) - t_{\text{р}}(1) - t(1,2)}= 5-0-5 = \textcolor{red}{0}$
+
+$\textcolor{magenta}{R_{\text{с}}(1,6)} = \textcolor{olive}{t_{\text{р}}(6) - t_{\text{р}}(1) - t(1,6)}= 8-0-6 = \textcolor{red}{2}$
+
+$\textcolor{magenta}{R_{\text{с}}(1,3)} = \textcolor{olive}{t_{\text{р}}(3) - t_{\text{р}}(1) - t(1,3)}= 8-0-8 = \textcolor{red}{0}$
+
+$\textcolor{magenta}{R_{\text{с}}(2,4)} = \textcolor{olive}{t_{\text{р}}(4) - t_{\text{р}}(2) - t(2,4)}= 9-5-4 = \textcolor{red}{0}$
+
+$\textcolor{magenta}{R_{\text{с}}(2,5)} = \textcolor{olive}{t_{\text{р}}(5) - t_{\text{р}}(2) - t(2,5)}= 13-5-8 = \textcolor{red}{0}$
+
+$\textcolor{magenta}{R_{\text{с}}(2,6)} = \textcolor{olive}{t_{\text{р}}(6) - t_{\text{р}}(2) - t(2,6)}= 8-5-3 = \textcolor{red}{0}$
+
+$\textcolor{magenta}{R_{\text{с}}(3,9)} = \textcolor{olive}{t_{\text{р}}(9) - t_{\text{р}}(3) - t(3,9)}= 19-8-4 = \textcolor{red}{7}$
+
+$\textcolor{magenta}{R_{\text{с}}(3,7)} = \textcolor{olive}{t_{\text{р}}(7) - t_{\text{р}}(3) - t(3,7)}= 14-8-6 = \textcolor{red}{0}$
+
+$\textcolor{magenta}{R_{\text{с}}(4,8)} = \textcolor{olive}{t_{\text{р}}(8) - t_{\text{р}}(4) - t(4,8)}= 19-9-7 = \textcolor{red}{3}$
+
+$\textcolor{magenta}{R_{\text{с}}(5,8)} = \textcolor{olive}{t_{\text{р}}(8) - t_{\text{р}}(5) - t(5,8)}= 19-13-6 = \textcolor{red}{0}$
+
+$\textcolor{magenta}{R_{\text{с}}(5,12)} = \textcolor{olive}{t_{\text{р}}(12) - t_{\text{р}}(5) - t(5,12)}= 22-13-9 = \textcolor{red}{0}$
+
+$\textcolor{magenta}{R_{\text{с}}(5,13)} = \textcolor{olive}{t_{\text{р}}(13) - t_{\text{р}}(5) - t(5,13)}= 26-13-13 = \textcolor{red}{0}$
+
+$\textcolor{magenta}{R_{\text{с}}(6,15)} = \textcolor{olive}{t_{\text{р}}(15) - t_{\text{р}}(6) - t(6,15)}= 32-8-7 = \textcolor{red}{17}$
+
+$\textcolor{magenta}{R_{\text{с}}(6,9)} = \textcolor{olive}{t_{\text{р}}(9) - t_{\text{р}}(6) - t(6,9)}= 19-8-1 = \textcolor{red}{10}$
+
+$\textcolor{magenta}{R_{\text{с}}(7,9)} = \textcolor{olive}{t_{\text{р}}(9) - t_{\text{р}}(7) - t(7,9)}= 94-14-5 = \textcolor{red}{0}$
+
+$\textcolor{magenta}{R_{\text{с}}(7,10)} = \textcolor{olive}{t_{\text{р}}(10) - t_{\text{р}}(7) - t(7,10)}= 23-14-9 = \textcolor{red}{0}$
+
+$\textcolor{magenta}{R_{\text{с}}(7,11)} = \textcolor{olive}{t_{\text{р}}(11) - t_{\text{р}}(7) - t(7,11)}= 26-14-8 = \textcolor{red}{4}$
+
+$\textcolor{magenta}{R_{\text{с}}(8,12)} = \textcolor{olive}{t_{\text{р}}(12) - t_{\text{р}}(8) - t(8,12)}= 22-19-2 = \textcolor{red}{1}$
+
+$\textcolor{magenta}{R_{\text{с}}(9,15)} = \textcolor{olive}{t_{\text{р}}(15) - t_{\text{р}}(9) - t(9,15)}= 32-19-9 = \textcolor{red}{4}$
+
+$\textcolor{magenta}{R_{\text{с}}(9,13)} = \textcolor{olive}{t_{\text{р}}(13) - t_{\text{р}}(9) - t(9,13)}= 26-19-5 = \textcolor{red}{2}$
+
+$\textcolor{magenta}{R_{\text{с}}(10,17)} = \textcolor{olive}{t_{\text{р}}(17) - t_{\text{р}}(10) - t(10,17)}= 46-23-10 = \textcolor{red}{13}$
+
+$\textcolor{magenta}{R_{\text{с}}(10,14)} = \textcolor{olive}{t_{\text{р}}(14) - t_{\text{р}}(10) - t(10,14)}= 38-23-15 = \textcolor{red}{0}$
+
+$\textcolor{magenta}{R_{\text{с}}(11,14)} = \textcolor{olive}{t_{\text{р}}(14) - t_{\text{р}}(11) - t(11,14)}= 38-26-4 = \textcolor{red}{8}$
+
+$\textcolor{magenta}{R_{\text{с}}(12,16)} = \textcolor{olive}{t_{\text{р}}(16) - t_{\text{р}}(12) - t(12,16)}= 24-22-2 = \textcolor{red}{0}$
+
+$\textcolor{magenta}{R_{\text{с}}(12,15)} = \textcolor{olive}{t_{\text{р}}(15) - t_{\text{р}}(12) - t(12,15)}= 32-22-10 = \textcolor{red}{8}$
+
+$\textcolor{magenta}{R_{\text{с}}(13,17)} = \textcolor{olive}{t_{\text{р}}(17) - t_{\text{р}}(13) - t(13,17)}= 46-26-10 = \textcolor{red}{13}$
+
+$\textcolor{magenta}{R_{\text{с}}(14,17)} = \textcolor{olive}{t_{\text{р}}(17) - t_{\text{р}}(14) - t(14,17)}= 46-38-8 = \textcolor{red}{0}$
+
+$\textcolor{magenta}{R_{\text{с}}(15,17)} = \textcolor{olive}{t_{\text{р}}(17) - t_{\text{р}}(15) - t(15,17)}= 46-32-8 = \textcolor{red}{6}$
+
+$\textcolor{magenta}{R_{\text{с}}(16,17)} = \textcolor{olive}{t_{\text{р}}(17) - t_{\text{р}}(16) - t(16,17)}= 46-24-5 = \textcolor{red}{17}$
+
+\hspace{0pt}
+}
+
+\textbf{Полный резерв времени работы}
+
+{\scriptsize
+$\textcolor{magenta}{R_{\text{с}}(1,2)} = \textcolor{olive}{t_{\text{п}}(2) - t_{\text{р}}(1) - t(1,2)}= 11-0-5 = \textcolor{red}{6}$
+
+$\textcolor{magenta}{R_{\text{с}}(1,6)} = \textcolor{olive}{t_{\text{п}}(6) - t_{\text{р}}(1) - t(1,6)}= 28-0-6 = \textcolor{red}{22}$
+
+$\textcolor{magenta}{R_{\text{с}}(1,3)} = \textcolor{olive}{t_{\text{п}}(3) - t_{\text{р}}(1) - t(1,3)}= 8-0-8 = \textcolor{red}{0}$
+
+$\textcolor{magenta}{R_{\text{с}}(2,4)} = \textcolor{olive}{t_{\text{п}}(4) - t_{\text{р}}(2) - t(2,4)}= 19-5-4 = \textcolor{red}{10}$
+
+$\textcolor{magenta}{R_{\text{с}}(2,5)} = \textcolor{olive}{t_{\text{п}}(5) - t_{\text{р}}(2) - t(2,5)}= 19-5-8 = \textcolor{red}{6}$
+
+$\textcolor{magenta}{R_{\text{с}}(2,6)} = \textcolor{olive}{t_{\text{п}}(6) - t_{\text{р}}(2) - t(2,6)}= 28-5-3 = \textcolor{red}{20}$
+
+$\textcolor{magenta}{R_{\text{с}}(3,9)} = \textcolor{olive}{t_{\text{п}}(9) - t_{\text{р}}(3) - t(3,9)}= 29-8-4 = \textcolor{red}{17}$
+
+$\textcolor{magenta}{R_{\text{с}}(3,7)} = \textcolor{olive}{t_{\text{п}}(7) - t_{\text{р}}(3) - t(3,7)}= 14-8-6 = \textcolor{red}{0}$
+
+$\textcolor{magenta}{R_{\text{с}}(4,8)} = \textcolor{olive}{t_{\text{п}}(8) - t_{\text{р}}(4) - t(4,8)}= 26-9-7 = \textcolor{red}{10}$
+
+$\textcolor{magenta}{R_{\text{с}}(5,8)} = \textcolor{olive}{t_{\text{п}}(8) - t_{\text{р}}(5) - t(5,8)}= 26-13-6 = \textcolor{red}{7}$
+
+$\textcolor{magenta}{R_{\text{с}}(5,12)} = \textcolor{olive}{t_{\text{п}}(12) - t_{\text{р}}(5) - t(5,12)}= 28-13-9 = \textcolor{red}{6}$
+
+$\textcolor{magenta}{R_{\text{с}}(5,13)} = \textcolor{olive}{t_{\text{п}}(13) - t_{\text{р}}(5) - t(5,13)}= 39-13-13 = \textcolor{red}{0}$
+
+$\textcolor{magenta}{R_{\text{с}}(6,15)} = \textcolor{olive}{t_{\text{п}}(15) - t_{\text{р}}(6) - t(6,15)}= 38-8-7 = \textcolor{red}{23}$
+
+$\textcolor{magenta}{R_{\text{с}}(6,9)} = \textcolor{olive}{t_{\text{п}}(9) - t_{\text{р}}(6) - t(6,9)}= 29-8-1 = \textcolor{red}{2}$
+
+$\textcolor{magenta}{R_{\text{с}}(7,9)} = \textcolor{olive}{t_{\text{п}}(9) - t_{\text{р}}(7) - t(7,9)}= 29-14-5 = \textcolor{red}{10}$
+
+$\textcolor{magenta}{R_{\text{с}}(7,10)} = \textcolor{olive}{t_{\text{п}}(10) - t_{\text{р}}(7) - t(7,10)}= 23-14-9 = \textcolor{red}{0}$
+
+$\textcolor{magenta}{R_{\text{с}}(7,11)} = \textcolor{olive}{t_{\text{п}}(11) - t_{\text{р}}(7) - t(7,11)}= 34-0-8 = \textcolor{red}{8}$
+
+$\textcolor{magenta}{R_{\text{с}}(8,12)} = \textcolor{olive}{t_{\text{п}}(12) - t_{\text{р}}(8) - t(8,12)}= 28-19-2 = \textcolor{red}{7}$
+
+$\textcolor{magenta}{R_{\text{с}}(9,15)} = \textcolor{olive}{t_{\text{п}}(15) - t_{\text{р}}(9) - t(9,15)}= 38-19-9 = \textcolor{red}{10}$
+
+$\textcolor{magenta}{R_{\text{с}}(9,13)} = \textcolor{olive}{t_{\text{п}}(13) - t_{\text{р}}(9) - t(9,13)}= 39-19-5 = \textcolor{red}{15}$
+
+$\textcolor{magenta}{R_{\text{с}}(10,17)} = \textcolor{olive}{t_{\text{п}}(17) - t_{\text{р}}(10) - t(10,17)}= 46-23-10 = \textcolor{red}{13}$
+
+$\textcolor{magenta}{R_{\text{с}}(10,14)} = \textcolor{olive}{t_{\text{п}}(14) - t_{\text{р}}(10) - t(10,14)}= 38-23-15 = \textcolor{red}{0}$
+
+$\textcolor{magenta}{R_{\text{с}}(11,14)} = \textcolor{olive}{t_{\text{п}}(14) - t_{\text{р}}(11) - t(11,14)}= 38-26-4 = \textcolor{red}{8}$
+
+$\textcolor{magenta}{R_{\text{с}}(12,16)} = \textcolor{olive}{t_{\text{п}}(16) - t_{\text{р}}(12) - t(12,16)}= 41-22-2 = \textcolor{red}{17}$
+
+$\textcolor{magenta}{R_{\text{с}}(12,15)} = \textcolor{olive}{t_{\text{п}}(15) - t_{\text{р}}(12) - t(12,15)}= 38-22-10 = \textcolor{red}{6}$
+
+$\textcolor{magenta}{R_{\text{с}}(13,17)} = \textcolor{olive}{t_{\text{п}}(17) - t_{\text{р}}(13) - t(13,17)}= 46-23-10 = \textcolor{red}{13}$
+
+$\textcolor{magenta}{R_{\text{с}}(14,17)} = \textcolor{olive}{t_{\text{п}}(17) - t_{\text{р}}(14) - t(14,17)}= 46-38-8 = \textcolor{red}{0}$
+
+$\textcolor{magenta}{R_{\text{с}}(15,17)} = \textcolor{olive}{t_{\text{п}}(17) - t_{\text{р}}(15) - t(15,17)}= 46-32-8 = \textcolor{red}{6}$
+
+$\textcolor{magenta}{R_{\text{с}}(16,17)} = \textcolor{olive}{t_{\text{п}}(17) - t_{\text{р}}(16) - t(16,17)}= 46-24-5 = \textcolor{red}{17}$
+
+\hspace{0pt}
+}
+
+\begin{center}
+  \textbf{2-ая часть лабораторной работы}
+\end{center}
+
+\textbf{Условие}: Беру методичку от БНТУ \cite{MethodBntu}.
+
+Информация о строительстве комплекса задана нумерацией работ,
+их продолжительностью (в ед. времени),
+последовательностью выполнения и оформлена в виде таблицы.
+За какое минимальное время может быть завершен весь комплекс работ.
+
+\textbf{Требуется}:
+\begin{enumerate}
+  \item[1)] по данным таблицы (см. таблицу~\ref{tab:part2_option5}) построить сетевой график комплекса работ и найти правильную нумерацию его вершин;
+  \item[2)] рассчитать на сетевом графике ранние и поздние сроки наступления событий, а также резервы времени событий;
+  \item[3)] выделить на сетевом графике критические пути;
+  \item[4)] для некритических работ найти полные и свободные резервы времени;
+  \item[5)] выполнить анализ сетевого графика.
+\end{enumerate}
+
+\begin{table}[h!]
+  \centering
+
+  \scriptsize
+
+  \caption{Данные к заданию}
+  \label{tab:part2_option5}
+
+  \begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|} 
+    \hline
+    № Варианта/№ работ &x&1&2&3&4&5&6&7&8&9\\  \hline
+    5&Каким работам предшествует&2,3,4&6,8&7&5&9&7&-&-&-\\ \hline
+    5&Продолжительность работ&17&17&18&10&13&12&14&15&16\\  \hline
+  \end{tabular}
+\end{table}
+
+\newpage
+
+\begin{center}
+  \textbf{Ход работы}
+\end{center}
+
+\subparagraph{Построение графа по таблице и его дальнейшее уврощение} \hspace{0pt}
+
+\subparagraph{Построение графа по таблице} \hspace{0pt}
+
+Для удобного построения графа буду начитать не с работы 1 и далее 2, 3, 4, ... Начну с работ, у которых нет предшествующих работ. 9, 8, 7, ...
+
+
+\textbf{Итерация номер 1 построения графа по таблице}. По таблице \ref{tab:part2_option5} беру работу №9. Этой работе №9 нет предшествующих работ.
+
+\begin{enumerate}
+  \item[1.1.] Рисую два кружка. Соединяю два круга стрелкой с сплошной линией. Над стрелкой пишу цифру 9.
+\end{enumerate}
+
+\textbf{Итерация номер 2 построения графа по таблице}. По таблице \ref{tab:part2_option5} беру работу №8. Этой работе №9 нет предшествующих работ.
+
+\begin{enumerate}
+  \item[2.1.] Рисую два кружка. Соединяю два круга стрелкой с сплошной линией. Над стрелкой пишу цифру 8.
+\end{enumerate}
+
+\textbf{Итерация номер 3 построения графа по таблице}. По таблице \ref{tab:part2_option5} беру работу №7. Этой работе №9 нет предшествующих работ.
+
+\begin{enumerate}
+  \item[3.1.] Рисую два кружка. Соединяю два круга стрелкой с сплошной линией. Над стрелкой пишу цифру 7.
+\end{enumerate}
+
+\textbf{Итерация номер 4 построения графа по таблице}. По таблице \ref{tab:part2_option5} беру работу №6. Этой работе №6 предшествует работа №7.
+
+\begin{enumerate}
+  \item[4.1.] Рисую два кружка. Соединяю два круга стрелкой с сплошной линией. Над стрелкой пишу цифру 6.
+  \item[4.2.] Соединяю последний шарик работы №7 и первый шарик работы №6 стрелкой с пунктирной линией.
+\end{enumerate}
+
+\textbf{Итерация номер 5 построения графа по таблице}. По таблице \ref{tab:part2_option5} беру работу №5. Этой работе №5 предшествует работа №9.
+
+\begin{enumerate}
+  \item[5.1.] Рисую два кружка. Соединяю два круга стрелкой с сплошной линией. Над стрелкой пишу цифру 5.
+  \item[5.2.] Соединяю последний шарик работы №9 и первый шарик работы №5 стрелкой с пунктирной линией.
+\end{enumerate}
+
+\textbf{Итерация номер 6 построения графа по таблице}. По таблице \ref{tab:part2_option5} беру работу №4. Этой работе №4 предшествует работа №5.
+
+\begin{enumerate}
+  \item[6.1.] Рисую два кружка. Соединяю два круга стрелкой с сплошной линией. Над стрелкой пишу цифру 4.
+  \item[6.2.] Соединяю последний шарик работы №5 и первый шарик работы №4 стрелкой с пунктирной линией.
+\end{enumerate}
+
+\textbf{Итерация номер 7 построения графа по таблице}. По таблице \ref{tab:part2_option5} беру работу №3. Этой работе №3 предшествует работа №7.
+
+\begin{enumerate}
+  \item[7.1.] Рисую два кружка. Соединяю два круга стрелкой с сплошной линией. Над стрелкой пишу цифру 3.
+  \item[7.2.] Соединяю последний шарик работы №7 и первый шарик работы №3 стрелкой с пунктирной линией.
+\end{enumerate}
+
+\textbf{Итерация номер 8 построения графа по таблице}. По таблице \ref{tab:part2_option5} беру работу №2. Этой работе №2 предшествует работы №6, №8.
+
+\begin{enumerate}
+  \item[8.1.] Рисую два кружка. Соединяю два круга стрелкой с сплошной линией. Над стрелкой пишу цифру 2.
+  \item[8.2.] Соединяю последний шарик работы №6 и первый шарик работы №2 стрелкой с пунктирной линией.
+  \item[8.3.] Соединяю последний шарик работы №8 и первый шарик работы №2 стрелкой с пунктирной линией.
+\end{enumerate}
+
+\textbf{Итерация номер 9 построения графа по таблице}. По таблице \ref{tab:part2_option5} беру работу №1. Этой работе №1 предшествует работы №2, №3, №4.
+
+\begin{enumerate}
+  \item[9.1.] Рисую два кружка. Соединяю два круга стрелкой с сплошной линией. Над стрелкой пишу цифру 1.
+  \item[9.2.] Соединяю последний шарик работы №2 и первый шарик работы №1 стрелкой с пунктирной линией.
+  \item[9.3.] Соединяю последний шарик работы №3 и первый шарик работы №1 стрелкой с пунктирной линией.
+  \item[9.4.] Соединяю последний шарик работы №4 и первый шарик работы №1 стрелкой с пунктирной линией.
+\end{enumerate}
+
+\subparagraph{Упрощение графа} \hspace{0pt}
+
+Объединяю кружки в один общий кластер:
+\begin{enumerate}
+  \item[1)] соединяю первые круги работ номер 7, 8, 9 в один красный круг;
+  \item[2)] соединяю последний круг работы номер 9 и первый круг работы номер 5 в один оранжевый круг;
+  \item[3)] соединяю последний круг работы номер 5 и первый круг работы номер 4 в один желтый круг;
+  \item[4)] соединяю последний круг работы номер 7 и первые круги работы номер 3 и 6 в один зеленый круг;
+  \item[5)] соединяю последние круги работ номер 6, 8 и первый круг работы номер 2 в один голубой круг;
+  \item[6)] соединяю последние круги работ номер 3,2,4 и первый круг работы номер 1 в один синий круг.
+\end{enumerate}
+
+Рисую новый упрощенный граф:
+\begin{enumerate}
+  \item[1)] рисую все круги;
+  \item[2)] красный круг соединен с зеленым кругом с цифрой 7;
+  \item[3)] красный круг соединен с голубым кругом с цифрой 8;
+  \item[4)] красный круг соединен с оранжевым кругом с цифрой 9;
+  \item[5)] оранжевый круг соединен с желтым кругом с цифрой 4;
+  \item[6)] желтый круг соединен с синим кругом с цифрой 4;
+  \item[7)] зеленый круг соединен с синим кругом с цифрой 3;
+  \item[8)] зеленый круг соединен с голубым кругом с цифрой 6;
+  \item[9)] голубой круг соединен с синим кругом с цифрой 2.
+\end{enumerate}
+
+Результат построения графа по таблице и его упрощенный граф изображен на рис.~\ref{fig:part2_option5}.
+
+\begin{figure}[!h]
+  \centering
+
+  \includegraphics[width=18cm]
+  {assets/export/part2-option5-Page-1.pdf}
+
+  \caption{Построенный граф по таблице и его упрощенный граф}
+
+  \label{fig:part2_option5}
+\end{figure}
+
+\newpage
+
+\subparagraph{Исходное событие I и завершающее событие S} \hspace{0pt}
+
+Событие I - кружок, который имеет только исходящие стрелки.
+
+Событие S - кружок, который имеет только входящие стрелки.
+
+\subparagraph{Номера вершин в натуральном порядке} \hspace{0pt}
+
+\textbf{1-итерация нумерования графа}
+
+1.1. Начнем с круга, от которого только исходят стрелки. Пометим этот круг красным цветом.
+
+1.2. От красного круга исходящие стрелки раскрасим красным цветом и пометим дугу римской цифрой <<I>>.
+
+\textbf{2-итерация нумерования графа}
+
+2.1. Находим не раскрашенные круги, в который входят раскрашенные и помеченные дуги. Раскрашиваем такой круг в оранжевый цвет.
+
+2.2. От оранжевого круга исходящие стрелки раскрасим оранжевым цветом и пометим дугу римской цифрой <<II>>.
+
+\textbf{3-итерация нумерования графа}
+
+3.1. Находим не раскрашенные круги, в который входят раскрашенные и помеченные дуги. Раскрашиваем такой круг в желтый цвет.
+
+3.2. От желтого круга исходящие стрелки раскрасим желтым цветом и пометим дугу римской цифрой <<III>>.
+
+\textbf{4-итерация нумерования графа}
+
+7.1. Находим не раскрашенные круги, в который входят раскрашенные и помеченные дуги. Круг такой один, последний. Раскрашиваем такой круг в зеленым цвет цвет.
+
+Конечный результат нумерации изображен на рис.~\ref{fig:part2_option5_nomera}.
+
+В место римских цифр возвращаю номера. Результат на рис.~\ref{fig:part2_option5_vesa}.
+
+\begin{figure}[!h]
+  \centering
+
+  \begin{minipage}{0.49\textwidth}
+    \centering
+
+    \includegraphics[width=9cm]
+    {assets/export/part2-option5-nomera-Page-1.pdf}
+  
+    \caption{Нумеруем граф}
+  
+    \label{fig:part2_option5_nomera}
+  \end{minipage}
+  \begin{minipage}{0.49\textwidth}
+    \centering
+
+    \includegraphics[width=9cm]
+    {assets/export/part2-option5-vesa-Page-1.pdf}
+
+    \caption{Подписываем ребра}
+
+    \label{fig:part2_option5_vesa}
+  \end{minipage}
+\end{figure}
+
+\newpage
+
+\subparagraph{Ранние и поздние сроки свершения событий} \hspace{0pt}
+
+\subparagraph{Расчет раннего времени} \hspace{0pt}
+
+{\scriptsize
+$\textcolor{magenta}{t_{\text{р}}(1)} = \textcolor{red}{0}$
+
+$\textcolor{magenta}{t_{\text{р}}(2)} = \textcolor{olive}{ t_{\text{р}}(1) + t(1;2) } =0+7 =\textcolor{red}{7}$
+
+$\textcolor{magenta}{t_{\text{р}}(3)} = \textcolor{olive}{t_{\text{р}}(1) + t(1;3)} =0+9 =\textcolor{red}{9}$
+
+$\textcolor{magenta}{t_{\text{р}}(4)} = \textcolor{olive}{max(t_{\text{р}}(2) + t(2;4); t_{\text{р}}(1) + t(1;4))} =max(7+6;0+8) =max(13;8) =\textcolor{red}{13}$
+
+$\textcolor{magenta}{t_{\text{р}}(5)} = \textcolor{olive}{t_{\text{р}}(3) + t(3;5)} =9+5 =\textcolor{red}{14}$
+
+$\textcolor{magenta}{t_{\text{р}}(6)} = \textcolor{olive}{max(t_{\text{р}}(2) + t(2;6); t_{\text{р}}(4) + t(4;6); t_{\text{р}}(5) + t(5;6))} =max(7+3;13+2;14+4) =max(10;15;18) =\textcolor{red}{18}$
+
+Расчеты $t_{\text{р}}$ перенесены на рис.~\ref{fig:part2_option5_krest}.
+}
+
+\subparagraph{Расчет позднего времени} \hspace{0pt}
+
+{\scriptsize
+$\textcolor{magenta}{t_{\text{п}}(6)} = \textcolor{olive}{t_{\text{р}}(6)} = \textcolor{red}{18}$
+
+$\textcolor{magenta}{t_{\text{п}}(5)} = \textcolor{olive}{t_{\text{р}}(6)-t(6;5)} = 18-4 = \textcolor{red}{14}$
+
+$\textcolor{magenta}{t_{\text{п}}(4)} = \textcolor{olive}{t_{\text{р}}(6)-t(6;4)} = 18-2 = \textcolor{red}{16}$
+
+$\textcolor{magenta}{t_{\text{п}}(3)} = \textcolor{olive}{t_{\text{р}}(5)-t(5;3)} = 14-5 = \textcolor{red}{9}$
+
+$\textcolor{magenta}{t_{\text{п}}(2)} = \textcolor{olive}{min(t_{\text{р}}(6)-t(6;2);t_{\text{р}}(4)-t(4;2))} = min(18-3;16-6) = min(15;10) = \textcolor{red}{10}$
+
+$\textcolor{magenta}{t_{\text{п}}(1)} = \textcolor{olive}{min(t_{\text{р}}(2)-t(2;1);t_{\text{р}}(4)-t(4;1);t_{\text{р}}(3)-t(3;1))} = min(10-7;18-8;9-9) =min(3;10;0) = \textcolor{red}{0}$
+
+Расчеты $t_{\text{п}}$ перенесены на рис.~\ref{fig:part2_option5_krest}.
+}
+
+\subparagraph{Критический путь и критическое время} \hspace{0pt}
+
+Круги, где раний срок равен позднему сроку ($t_\text{р}(i) = t_\text{п}(i)$), соединены крит. путем:
+
+\begin{multicols}{2}
+$t_\text{р}(1) =0 \equiv  t_\text{п}(1) = 0$;
+
+$t_\text{р}(3) =9 \equiv  t_\text{п}(3) = 9$;
+
+\columnbreak
+
+$t_\text{р}(5) =14 \equiv  t_\text{п}(5) = 14$;
+
+$t_\text{р}(6) =23 \equiv  t_\text{п}(6) = 18$.
+\end{multicols}
+
+Критический путь $L_{\text{кр}}$: 1-3-5-6.
+
+Критическое время: $t(L_{\text{кр}}) = t_{\text{кр}} = 9+5+4 = 18$
+
+Отметим критический путь жирными стрелками.
+
+Критический путь отмечен жирными стрелками на рис.~\ref{fig:part2_option5_krest}.
+
+\subparagraph{Резервы времени событий и интервалы свободы} \hspace{0pt}
+
+Резерв времени буду считать по формуле (\ref{equ:part1_R}).
+
+\begin{equation}
+  R_{i } = t_\text{п}(i ) - t_\text{р}(i ) \label{equ:part1_R}
+\end{equation}
+
+\begin{multicols}{2}
+$\textcolor{magenta}{R_{1}} = \textcolor{olive}{t_\text{п}(1) - t_\text{р}(1)} = 0-0 = \textcolor{red}{0}$
+
+$\textcolor{magenta}{R_{2}} = \textcolor{olive}{t_\text{п}(2) - t_\text{р}(2)} = 10-7 = \textcolor{red}{3}$
+
+$\textcolor{magenta}{R_{3}} = \textcolor{olive}{t_\text{п}(3) - t_\text{р}(3)} = 9-9 = \textcolor{red}{0}$
+
+\columnbreak
+
+$\textcolor{magenta}{R_{4}} = \textcolor{olive}{t_\text{п}(4) - t_\text{р}(4)} = 16-13 = \textcolor{red}{3}$
+
+$\textcolor{magenta}{R_{5}} = \textcolor{olive}{t_\text{п}(5) - t_\text{р}(5)} = 14-14 = \textcolor{red}{0}$
+
+$\textcolor{magenta}{R_{6}} = \textcolor{olive}{t_\text{п}(6) - t_\text{р}(6)} = 18-18 = \textcolor{red}{0}$
+\end{multicols}
+
+Расчеты R перенесены на рис.~\ref{fig:part2_option5_krest}.
+
+\begin{figure}[!h]
+  \centering
+
+  \includegraphics[width=18cm]
+  {assets/export/part2-option5-krest-Page-1.pdf}
+
+  \caption{Граф с подписанными номерами, ранним временем, поздним временем и резервом}
+
+  \label{fig:part2_option5_krest}
+\end{figure}
+
+\newpage
+
+\subparagraph{Ранние и поздние сроки начала и окончания всех работ} \hspace{0pt}
+
+Раний срок начала работ буду считать по формуле (\ref{equ:part1_trn}).
+
+\begin{equation}
+  t_{\text{р.н.}}(i ,j ) = t_{\text{р}}(i) \label{equ:part1_trn}
+\end{equation}
+
+Поздний срок окончания работ буду считать по формуле (\ref{equ:part1_tpo}).
+
+\begin{equation}
+  t_{\text{п.о.}}(i ,j ) = t_{\text{п}}(j ) \label{equ:part1_tpo}
+\end{equation}
+
+\subparagraph{Ранний срок начала работ} \hspace{0pt}
+
+{\scriptsize
+\begin{multicols}{3}
+$\textcolor{magenta}{t_{\text{р.н.}}(1,2)} = \textcolor{olive}{t_{\text{р}}(1)}=\textcolor{red}{0}$
+
+$\textcolor{magenta}{t_{\text{р.н.}}(1,4)} = \textcolor{olive}{t_{\text{р}}(1)}=\textcolor{red}{0}$
+
+$\textcolor{magenta}{t_{\text{р.н.}}(1,3)} = \textcolor{olive}{t_{\text{р}}(1)}=\textcolor{red}{0}$
+
+\columnbreak
+
+$\textcolor{magenta}{t_{\text{р.н.}}(2,6)} = \textcolor{olive}{t_{\text{р}}(2)}=\textcolor{red}{7}$
+
+$\textcolor{magenta}{t_{\text{р.н.}}(2,4)} = \textcolor{olive}{t_{\text{р}}(2)}=\textcolor{red}{7}$
+
+$\textcolor{magenta}{t_{\text{р.н.}}(3,5)} = \textcolor{olive}{t_{\text{р}}(3)}=\textcolor{red}{9}$
+
+\columnbreak
+
+$\textcolor{magenta}{t_{\text{р.н.}}(4,6)} = \textcolor{olive}{t_{\text{р}}(4)}=\textcolor{red}{13}$
+
+$\textcolor{magenta}{t_{\text{р.н.}}(5,6)} = \textcolor{olive}{t_{\text{р}}(5)}=\textcolor{red}{14}$
+
+\hspace{0pt}
+\end{multicols}
+}
+
+\subparagraph{Поздний срок окончания работ} \hspace{0pt}
+
+{\scriptsize
+\begin{multicols}{3}
+$\textcolor{magenta}{t_{\text{п.о.}}(1,2)} = \textcolor{olive}{t_{\text{р}}(2)}=\textcolor{red}{7}$
+
+$\textcolor{magenta}{t_{\text{п.о.}}(1,4)} = \textcolor{olive}{t_{\text{р}}(4)}=\textcolor{red}{13}$
+
+$\textcolor{magenta}{t_{\text{п.о.}}(1,3)} = \textcolor{olive}{t_{\text{р}}(3)}=\textcolor{red}{9}$
+
+\columnbreak
+
+$\textcolor{magenta}{t_{\text{п.о.}}(2,6)} = \textcolor{olive}{t_{\text{р}}(6)}=\textcolor{red}{18}$
+
+$\textcolor{magenta}{t_{\text{п.о.}}(2,4)} = \textcolor{olive}{t_{\text{р}}(4)}=\textcolor{red}{13}$
+
+$\textcolor{magenta}{t_{\text{п.о.}}(3,5)} = \textcolor{olive}{t_{\text{р}}(5)}=\textcolor{red}{14}$
+
+\columnbreak
+
+$\textcolor{magenta}{t_{\text{п.о.}}(4,6)} = \textcolor{olive}{t_{\text{р}}(6)}=\textcolor{red}{18}$
+
+$\textcolor{magenta}{t_{\text{п.о.}}(5,6)} = \textcolor{olive}{t_{\text{р}}(6)}=\textcolor{red}{18}$
+
+\hspace{0pt}
+\end{multicols}
+}
+
+\subparagraph{Полный и свободный резервы времени выполнения работ} \hspace{0pt}
+
+Свободный резерв времени работы буду считать по формуле (\ref{equ:part1_rc}).
+
+\begin{equation}
+  R_{\text{с}}(i,j) = t_{\text{р}}(j) - t_{\text{р}}(i) - t(i,j) \label{equ:part1_rc}
+\end{equation}
+
+Полный резерв времени работы буду считать по формуле (\ref{equ:part1_rp}).
+
+\begin{equation}
+  R_{\text{п}}(i,j) = t_{\text{п}}(j) - t_{\text{р}}(i) - t(i,j) \label{equ:part1_rp}
+\end{equation}
+
+\textbf{Свободный резерв времени работы}
+
+{\scriptsize
+$\textcolor{magenta}{R_{\text{с}}(1,2)} = \textcolor{olive}{t_{\text{р}}(2) - t_{\text{р}}(1) - t(1,2)}= 7-0-7 = \textcolor{red}{0}$
+
+$\textcolor{magenta}{R_{\text{с}}(1,4)} = \textcolor{olive}{t_{\text{р}}(4) - t_{\text{р}}(1) - t(1,4)}= 13-8-0 = \textcolor{red}{5}$
+
+$\textcolor{magenta}{R_{\text{с}}(1,3)} = \textcolor{olive}{t_{\text{р}}(3) - t_{\text{р}}(1) - t(1,3)}= 9-0-9 = \textcolor{red}{0}$
+
+$\textcolor{magenta}{R_{\text{с}}(2,6)} = \textcolor{olive}{t_{\text{р}}(6) - t_{\text{р}}(2) - t(2,6)}= 18-7-3 = \textcolor{red}{8}$
+
+$\textcolor{magenta}{R_{\text{с}}(2,4)} = \textcolor{olive}{t_{\text{р}}(4) - t_{\text{р}}(2) - t(2,4)}= 13-7-6 = \textcolor{red}{0}$
+
+$\textcolor{magenta}{R_{\text{с}}(3,5)} = \textcolor{olive}{t_{\text{р}}(5) - t_{\text{р}}(3) - t(3,5)}= 14-9-5 = \textcolor{red}{0}$
+
+$\textcolor{magenta}{R_{\text{с}}(4,6)} = \textcolor{olive}{t_{\text{р}}(6) - t_{\text{р}}(4) - t(4,6)}= 18-13-2 = \textcolor{red}{3}$
+
+$\textcolor{magenta}{R_{\text{с}}(5,6)} = \textcolor{olive}{t_{\text{р}}(6) - t_{\text{р}}(5) - t(5,6)}= 18-14-4 = \textcolor{red}{0}$
+
+\hspace{0pt}
+}
+
+\textbf{Полный резерв времени работы}
+
+{\scriptsize
+$\textcolor{magenta}{R_{\text{с}}(1,2)} = \textcolor{olive}{t_{\text{п}}(2) - t_{\text{р}}(1) - t(1,2)}= 10-0-7 = \textcolor{red}{3}$
+
+$\textcolor{magenta}{R_{\text{с}}(1,4)} = \textcolor{olive}{t_{\text{п}}(4) - t_{\text{р}}(1) - t(1,4)}= 16-0-8 = \textcolor{red}{8}$
+
+$\textcolor{magenta}{R_{\text{с}}(1,3)} = \textcolor{olive}{t_{\text{п}}(3) - t_{\text{р}}(1) - t(1,3)}= 9-0-9 = \textcolor{red}{0}$
+
+$\textcolor{magenta}{R_{\text{с}}(2,6)} = \textcolor{olive}{t_{\text{п}}(6) - t_{\text{р}}(2) - t(2,6)}= 18-7-3 = \textcolor{red}{8}$
+
+$\textcolor{magenta}{R_{\text{с}}(2,4)} = \textcolor{olive}{t_{\text{п}}(4) - t_{\text{р}}(2) - t(2,4)}= 16-7-6 = \textcolor{red}{3}$
+
+$\textcolor{magenta}{R_{\text{с}}(3,5)} = \textcolor{olive}{t_{\text{п}}(5) - t_{\text{р}}(3) - t(3,5)}= 14-9-5 = \textcolor{red}{0}$
+
+$\textcolor{magenta}{R_{\text{с}}(4,6)} = \textcolor{olive}{t_{\text{п}}(6) - t_{\text{р}}(4) - t(4,6)}= 18-13-2 = \textcolor{red}{3}$
+
+$\textcolor{magenta}{R_{\text{с}}(5,6)} = \textcolor{olive}{t_{\text{п}}(6) - t_{\text{р}}(5) - t(5,6)}= 18-14-4 = \textcolor{red}{0}$
+
+\hspace{0pt}
+}
